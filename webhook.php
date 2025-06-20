@@ -29,6 +29,13 @@ try {
     error_log("Error loading .env file: " . $e->getMessage());
     die("Bot configuration error."); // Останавливаем выполнение, если .env не найден
 }
+// --- Добавьте эти строки для отладки ---
+error_log("TELEGRAM_BOT_TOKEN: " . getenv('TELEGRAM_BOT_TOKEN'));
+error_log("MANAGER_EMAIL: " . getenv('MANAGER_EMAIL'));
+error_log("CONDITIONS_FILE_URL: " . getenv('CONDITIONS_FILE_URL'));
+error_log("SAVE_APPLICATIONS_TO_FILE: " . (getenv('SAVE_APPLICATIONS_TO_FILE') ? 'true' : 'false'));
+error_log("APPLICATIONS_LOG_FILE: " . getenv('APPLICATIONS_LOG_FILE'));
+// --- Конец отладочных строк ---
 
 // --- Получение переменных окружения ---
 $botToken = getenv('TELEGRAM_BOT_TOKEN');
